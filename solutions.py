@@ -2,8 +2,8 @@ import sqlite3
 import requests
 from bs4 import BeautifulSoup
 
-INITIAL_POSITION = 111
-FINAL_POSITION = 120
+INITIAL_POSITION = 121
+FINAL_POSITION = 130
 USER_URL = 'https://www.urionlinejudge.com.br/judge/en/profile/'
 
 
