@@ -2,8 +2,8 @@ import sqlite3
 import requests
 from bs4 import BeautifulSoup
 
-INITIAL_POSITION = 11
-FINAL_POSITION = 20
+INITIAL_POSITION = 31
+FINAL_POSITION = 40
 USER_URL = 'https://www.urionlinejudge.com.br/judge/en/profile/'
 
 
@@ -25,7 +25,7 @@ def get_number_of_pages(user_id):
 
 
 def add_solution(solution):
-    print 'Problem: %s (%s)' % (solution['problem_id'], solution['date'])
+    print ('Problem: %s (%s)' % (solution['problem_id'], solution['date']))
     c.execute('''INSERT OR REPLACE INTO solution VALUES
                  (:user_id, :problem_id, :date)''', solution)
     conn.commit()
@@ -41,10 +41,10 @@ for row in c.fetchall():
     user_id = row[0]
     position = row[1]
     user_pages = get_number_of_pages(user_id)
-    print '#%d User: %d - %d pages' % (position, user_id, user_pages)
+    print ('#%d User: %d - %d pages' % (position, user_id, user_pages))
 
     for page in range(1, user_pages + 1):
-        print 'Page %d of %d' % (page, user_pages)
+        print ('Page %d of %d' % (page, user_pages))
         response = requests.get(USER_URL + str(user_id), params={'page': page})
         soup = BeautifulSoup(response.text, 'html.parser')
         for tr in soup.find('table').find_all('tr')[1:]:
