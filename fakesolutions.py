@@ -3,8 +3,9 @@ import random
 
 print 'user,problem,category,date'
 
-users = list(range(1000))
+users = list(range(2000))
 problems = list(range(1001, 1500))
+problems.reverse()
 
 for user in users:
 	num_problems = int(random.random() * len(problems))
