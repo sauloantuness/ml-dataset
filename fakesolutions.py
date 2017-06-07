@@ -3,7 +3,7 @@ import random
 
 print 'user,problem,category,date'
 
-users = list(range(2000))
+users = list(range(1, 2000))
 problems = list(range(1001, 1500))
 problems.reverse()
 
