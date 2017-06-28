@@ -5,7 +5,7 @@ print 'user,problem,category,date'
 
 users = list(range(1, 2000))
 problems = list(range(1001, 1500))
-problems.reverse()
+# problems.reverse()
 
 for user in users:
 	num_problems = int(random.random() * len(problems))
